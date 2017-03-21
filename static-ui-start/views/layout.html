@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Trip Planner</title>
-  <link href="/stylesheets/style.css" rel="stylesheet">
-
-
+    <title>Trip Planner</title>
+    <link href="/stylesheets/style.css" rel="stylesheet">
 </head>
+
 <body>
-  {% block content %}
-  {% endblock %}
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <link href="/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet">
-  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="/jqeuery/dist/jquery.min.js" type="text/javascript"> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXN6yCatSCb73bIW1pOUJpwD8dN5nMVjs&sensor=true"></script>
-  <script>
+    {% block content %} {% endblock %}
+   <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ -->
+<link href="/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet">
+<link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  function initialize_gmaps() {
-    // initialize new google maps LatLng object
-    console.log("maps initialized!!")
-    var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
-    // set the map options hash
-    var mapOptions = {
-        center: myLatlng,
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    // get the maps div's HTML obj
-    var map_canvas_obj = document.getElementById("map");
-    // initialize a new Google Map with the options
-    var map = new google.maps.Map(map_canvas_obj, mapOptions);
-    // Add the marker to the map
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        title:"Hello World!"
+    <!-- <link href="/jqeuery/dist/jquery.min.js" type="text/javascript"> -->
+   <!--  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXN6yCatSCb73bIW1pOUJpwD8dN5nMVjs&sensor=true"></script>
+    <script>
+    function initialize_gmaps() {
+        // initialize new google maps LatLng object
+        console.log("maps initialized!!")
+        var myLatlng = new google.maps.LatLng(40.705189, -74.009209);
+        // set the map options hash
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // get the maps div's HTML obj
+        var map_canvas_obj = document.getElementById("map");
+        // initialize a new Google Map with the options
+        var map = new google.maps.Map(map_canvas_obj, mapOptions);
+        // Add the marker to the map
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title: "Hello World!"
+        });
+        // Add the marker to the map by calling setMap()
+        marker.setMap(map);
+    }
+
+    $(document).ready(function() {
+        initialize_gmaps();
     });
-    // Add the marker to the map by calling setMap()
-    marker.setMap(map);
-}
-
-$(document).ready(function() {
-    initialize_gmaps();
-});
-
-</script>
+    </script>
 </body>
-
 
 </html>
